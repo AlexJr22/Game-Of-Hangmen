@@ -1,6 +1,6 @@
 namespace Game_Of_Hangmen.Controls;
 
-public static class DrawMen
+public static class DrawMan
 {
     // this is the stickman drawing
     //     O      -> DrawHead();
