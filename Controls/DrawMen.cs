@@ -10,14 +10,17 @@ public static class DrawMen
 
     public static void Drawing()
     {
-        Console.WriteLine(
-            """
-this is the stickman drawing 
-		   O   
-		>--|--<
-		   |
-		 _/ \_ 
-"""
-        );
+        DrawHead();
+        DrawArms();
+        DrawHalf();
+        DrawLegs();
     }
+
+    public static void DrawHead() => Console.WriteLine("   O   ");
+
+    public static void DrawArms() => Console.WriteLine(">--|--<");
+
+    public static void DrawHalf() => Console.WriteLine("   |   ");
+
+    public static void DrawLegs() => Console.WriteLine(" _/ \\_ ");
 }
