@@ -30,5 +30,12 @@ public class GameHangmen
 
     protected char[] SeparateCharacters(string word) => word.ToCharArray();
 
-    public void ShowCharacters() => Console.WriteLine(Characters);
+    public void ShowCharacters()
+    {
+        if (Characters is not null)
+            foreach (char character in Characters)
+                Console.WriteLine(character);
+        else
+            Console.WriteLine("I couldn't find any words, the word list is empty");
+    }
 }
