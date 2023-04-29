@@ -13,7 +13,17 @@ public class GameHangmen
         // the game start setting are here
     }
 
-    public void UseListOfWord(List<string> listOfWords) => this.Word = RaffleWord(listOfWords);
+    public void UseListOfWord(List<string> listOfWords)
+    {
+        this.Word = RaffleWord(listOfWords);
+
+        if (Word is not null)
+            Characters = SeparateCharacters(Word);
+        else
+            throw new ArgumentException(
+                "No list was passed. Make sure you passed a list using the UseListOfWord method!"
+            );
+    }
 
     protected string RaffleWord(List<string> listOfWords) // picking a random word the list
     {
