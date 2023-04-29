@@ -15,7 +15,7 @@ public class GameHangmen
 
     public void UseListOfWord(List<string> listOfWords) => this.Word = RaffleWord(listOfWords);
 
-    public string RaffleWord(List<string> listOfWords) // picking a random word the list
+    protected string RaffleWord(List<string> listOfWords) // picking a random word the list
     {
         if (listOfWords is null || listOfWords.Count == 0)
             throw new ArgumentException("The wordlist cannot be empty.");
