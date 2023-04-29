@@ -29,4 +29,6 @@ public class GameHangmen
     }
 
     protected char[] SeparateCharacters(string word) => word.ToCharArray();
+
+    public void ShowCharacters() => Console.WriteLine(Characters);
 }
