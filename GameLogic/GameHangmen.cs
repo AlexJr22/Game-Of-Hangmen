@@ -13,7 +13,7 @@ public class GameHangmen
     public GameHangmen()
     {
         this.Word = "";
-        HealthPoints = 4;
+        this.HealthPoints = 4;
         this.Characters = new char[0];
         this.HiddenLetters = new char[0];
     }
