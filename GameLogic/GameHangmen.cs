@@ -52,7 +52,7 @@ public class GameHangmen
 
     public void ShowCharacters()
     {
-        if (Characters is not null)
+        if (Characters.Length > 0)
             foreach (char character in Characters)
                 Console.Write($"{character} ");
         else
@@ -61,7 +61,7 @@ public class GameHangmen
 
     public void ShowHiddenLetters()
     {
-        if (HiddenLetters is not null)
+        if (HiddenLetters.Length > 0)
             foreach (char character in HiddenLetters)
                 Console.Write($"{character} ");
         else
