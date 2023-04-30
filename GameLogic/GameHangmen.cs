@@ -5,10 +5,17 @@ namespace Game_Of_Hangmen.GameLogic;
 public class GameHangmen
 {
     // Class responsible for containing the game logic
-    protected string? Word { get; set; }
-    protected char[]? HiddenLetters;
-    protected char[]? Characters;
+    protected string Word { get; set; }
+    protected char[] HiddenLetters;
+    protected char[] Characters;
     protected short HealthPoints { get; set; }
+
+    public GameHangmen()
+    {
+        this.Word = "";
+        this.Characters = new char[0];
+        this.HiddenLetters = new char[0];
+    }
 
     public void Start() // the game start setting are here
     {
