@@ -7,11 +7,11 @@ public class GameHangmen
     // Class responsible for containing the game logic
     protected string? Word { get; set; }
     protected char[]? Characters { get; set; }
+    protected short HealthPoints { get; set; }
+    protected short HiddenLetters { get; set; }
 
-    public void start()
-    {
-        // the game start setting are here
-    }
+    public void Start() // the game start setting are here
+    { }
 
     public void UseListOfWords(List<string> listOfWords)
     {
@@ -48,4 +48,6 @@ public class GameHangmen
         else
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
+
+    protected void CheckWord() { }
 }
