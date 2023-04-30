@@ -20,7 +20,6 @@ public class GameHangmen
 
     public void Start() // the game start setting are here
     {
-        SetHiddenLetters();
         ShowHiddenLetters();
     }
 
@@ -36,6 +35,9 @@ public class GameHangmen
             throw new ArgumentException(
                 "No list was passed. Make sure you passed a list using the UseListOfWord method!"
             );
+
+        // hiding the letters
+        SetHiddenLetters();
     }
 
     protected string RaffleWord(List<string> listOfWords) // picking a random word the list
