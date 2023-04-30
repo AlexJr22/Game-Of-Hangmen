@@ -20,13 +20,14 @@ public class GameHangmen
     public void Start() // the game start setting are here
     {
         SetHiddenLetters();
+        ShowHiddenLetters();
     }
 
     public void UseListOfWords(List<string> listOfWords)
     {
         this.Word = RaffleWord(listOfWords);
 
-        if (Word is not null)
+        if (Word.Length > 0)
             Characters = SeparateCharacters(Word.Replace(' ', '-'));
         else
             throw new ArgumentException(
@@ -53,6 +54,15 @@ public class GameHangmen
     {
         if (Characters is not null)
             foreach (char character in Characters)
+                Console.Write($"{character} ");
+        else
+            Console.WriteLine("I couldn't find any words, the word list is empty");
+    }
+
+    public void ShowHiddenLetters()
+    {
+        if (HiddenLetters is not null)
+            foreach (char character in HiddenLetters)
                 Console.Write($"{character} ");
         else
             Console.WriteLine("I couldn't find any words, the word list is empty");
