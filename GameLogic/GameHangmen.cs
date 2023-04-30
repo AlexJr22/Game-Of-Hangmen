@@ -26,7 +26,21 @@ public class GameHangmen
 
         Console.WriteLine();
         Console.Write("Escolha uma letra: ");
-        Console.Read();
+
+        string? UserChoice = Console.ReadLine();
+        char userChoice = ' ';
+
+        try
+        {
+            if (UserChoice is not null)
+                userChoice = UserChoice[0];
+        }
+        catch (IndexOutOfRangeException)
+        {
+            Console.WriteLine("You have not entered any characters!");
+            Console.WriteLine("you missed a point!");
+            --HealthPoints;
+        }
     }
 
     public void UseListOfWords(List<string> listOfWords)
