@@ -1,4 +1,4 @@
-using Game_Of_Hangmen.Controls;
+using Game_Of_Hangmen.DrawingControls;
 
 namespace Game_Of_Hangmen.GameLogic;
 

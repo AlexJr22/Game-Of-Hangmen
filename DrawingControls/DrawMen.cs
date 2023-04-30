@@ -1,4 +1,4 @@
-namespace Game_Of_Hangmen.Controls;
+namespace Game_Of_Hangmen.DrawingControls;
 
 public static class DrawMan
 {
