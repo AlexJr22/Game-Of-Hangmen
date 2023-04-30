@@ -18,7 +18,7 @@ public class GameHangmen
         this.Word = RaffleWord(listOfWords);
 
         if (Word is not null)
-            Characters = SeparateCharacters(Word);
+            Characters = SeparateCharacters(Word.Replace(' ', '-'));
         else
             throw new ArgumentException(
                 "No list was passed. Make sure you passed a list using the UseListOfWord method!"
@@ -44,7 +44,7 @@ public class GameHangmen
     {
         if (Characters is not null)
             foreach (char character in Characters)
-                Console.WriteLine(character);
+                Console.Write($"{character} ");
         else
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
