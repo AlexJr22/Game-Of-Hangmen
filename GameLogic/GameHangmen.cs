@@ -20,7 +20,13 @@ public class GameHangmen
 
     public void Start() // the game start setting are here
     {
-        ShowHiddenLetters();
+        Menu.DrawGallows();
+        Console.WriteLine();
+        this.ShowHiddenLetters();
+
+        Console.WriteLine();
+        Console.Write("Escolha uma letra: ");
+        Console.Read();
     }
 
     public void UseListOfWords(List<string> listOfWords)
