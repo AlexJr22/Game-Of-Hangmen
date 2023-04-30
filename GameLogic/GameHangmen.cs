@@ -13,7 +13,7 @@ public class GameHangmen
         // the game start setting are here
     }
 
-    public void UseListOfWord(List<string> listOfWords)
+    public void UseListOfWords(List<string> listOfWords)
     {
         this.Word = RaffleWord(listOfWords);
 
