@@ -25,8 +25,10 @@ public class GameHangmen
 
     public void UseListOfWords(List<string> listOfWords)
     {
+        // adding a random word from the list to 'Word'
         this.Word = RaffleWord(listOfWords);
 
+        // separating the letters
         if (Word.Length > 0)
             Characters = SeparateCharacters(Word.Replace(' ', '-'));
         else
@@ -52,6 +54,7 @@ public class GameHangmen
 
     public void ShowCharacters()
     {
+        // show the letters
         if (Characters.Length > 0)
             foreach (char character in Characters)
                 Console.Write($"{character} ");
@@ -61,6 +64,7 @@ public class GameHangmen
 
     public void ShowHiddenLetters()
     {
+        // show the hidden letters
         if (HiddenLetters.Length > 0)
             foreach (char character in HiddenLetters)
                 Console.Write($"{character} ");
@@ -74,6 +78,7 @@ public class GameHangmen
     {
         if (Characters is not null)
         {
+            // set the hidden letters
             HiddenLetters = new char[Characters.Length];
             for (int i = 0; i < Characters.Length; i++)
             {
