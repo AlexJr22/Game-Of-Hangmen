@@ -6,9 +6,9 @@ public class GameHangmen
 {
     // Class responsible for containing the game logic
     protected string? Word { get; set; }
+    protected char[]? HiddenLetters { get; set; }
     protected char[]? Characters { get; set; }
     protected short HealthPoints { get; set; }
-    protected car HiddenLetters { get; set; }
 
     public void Start() // the game start setting are here
     {
