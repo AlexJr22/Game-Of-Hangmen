@@ -6,8 +6,8 @@ public class GameHangmen
 {
     // Class responsible for containing the game logic
     protected string? Word { get; set; }
-    protected char[]? HiddenLetters { get; set; }
-    protected char[]? Characters { get; set; }
+    protected char[]? HiddenLetters;
+    protected char[]? Characters;
     protected short HealthPoints { get; set; }
 
     public void Start() // the game start setting are here
@@ -55,6 +55,16 @@ public class GameHangmen
 
     protected void SetHiddenLetters()
     {
-        if (Characters is not null) { }
+        if (Characters is not null)
+        {
+            HiddenLetters = new char[Characters.Length];
+            for (int i = 0; i < Characters.Length; i++)
+            {
+                if (Characters[i] != '-')
+                    HiddenLetters[i] = '*';
+                else
+                    HiddenLetters[i] = '-';
+            }
+        }
     }
 }
