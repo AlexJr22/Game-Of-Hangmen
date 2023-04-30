@@ -79,17 +79,14 @@ public class GameHangmen
 
     protected void SetHiddenLetters()
     {
-        if (Characters is not null)
+        // set the hidden letters
+        HiddenLetters = new char[Characters.Length];
+        for (int i = 0; i < Characters.Length; i++)
         {
-            // set the hidden letters
-            HiddenLetters = new char[Characters.Length];
-            for (int i = 0; i < Characters.Length; i++)
-            {
-                if (Characters[i] != '-')
-                    HiddenLetters[i] = '*';
-                else
-                    HiddenLetters[i] = '-';
-            }
+            if (Characters[i] != '-')
+                HiddenLetters[i] = '*';
+            else
+                HiddenLetters[i] = '-';
         }
     }
 }
