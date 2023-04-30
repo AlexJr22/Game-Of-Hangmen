@@ -8,10 +8,12 @@ public class GameHangmen
     protected string? Word { get; set; }
     protected char[]? Characters { get; set; }
     protected short HealthPoints { get; set; }
-    protected short HiddenLetters { get; set; }
+    protected car HiddenLetters { get; set; }
 
     public void Start() // the game start setting are here
-    { }
+    {
+        SetHiddenLetters();
+    }
 
     public void UseListOfWords(List<string> listOfWords)
     {
@@ -50,4 +52,9 @@ public class GameHangmen
     }
 
     protected void CheckWord() { }
+
+    protected void SetHiddenLetters()
+    {
+        if (Characters is not null) { }
+    }
 }
