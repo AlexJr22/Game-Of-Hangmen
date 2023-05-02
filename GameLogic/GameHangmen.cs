@@ -83,13 +83,24 @@ public class GameHangmen
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
 
-    protected void CheckWord(char[] word, char[] hiddenLetters)
+    protected void CheckWord(char[] characters, char[] hiddenLetters)
     {
         // finish this later
-        bool areEqual = hiddenLetters.SequenceEqual(word);
+        bool areEqual = hiddenLetters.SequenceEqual(characters);
 
-        if (areEqual) { }
-        else { }
+        if (areEqual)
+        {
+            Console.Clear();
+            Console.WriteLine("You got all the letters right");
+
+            Console.Write("the hidden word: ");
+            this.ShowCharacters();
+        }
+        else
+        {
+            Console.Clear();
+            this.Start();
+        }
     }
 
     protected void SetHiddenLetters()
@@ -131,12 +142,18 @@ public class GameHangmen
         if (CheckChoice(Letter))
         {
             NewHiddenLetters(Letter);
-            ShowHiddenLetters();
+
+            this.CheckWord(Characters, HiddenLetters);
         }
         else
         {
+            Console.Clear();
             Console.WriteLine("Ops, You misses the letter!");
             --HealthPoints;
+
+            Thread.Sleep(500);
+            Console.Clear();
+            this.Start();
         }
     }
 
