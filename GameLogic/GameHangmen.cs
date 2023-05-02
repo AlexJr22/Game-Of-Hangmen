@@ -20,27 +20,15 @@ public class GameHangmen
 
     public void Start() // the game start setting are here
     {
+        // draw the gallows and the man
         Menu.DrawGallows();
         Console.WriteLine();
+
+        // hide letters
         this.ShowHiddenLetters();
 
-        Console.WriteLine();
-        Console.Write("Escolha uma letra: ");
-
-        string? UserChoice = Console.ReadLine();
-        char userChoice = ' ';
-
-        try
-        {
-            if (UserChoice is not null)
-                userChoice = UserChoice[0];
-        }
-        catch (IndexOutOfRangeException)
-        {
-            Console.WriteLine("You have not entered any characters!");
-            Console.WriteLine("you missed a point!");
-            --HealthPoints;
-        }
+        // waiting and checking if the user typed and hit the letter
+        this.CheckLyrics();
     }
 
     public void UseListOfWords(List<string> listOfWords)
@@ -107,6 +95,62 @@ public class GameHangmen
                 HiddenLetters[i] = '*';
             else
                 HiddenLetters[i] = '-';
+        }
+    }
+
+    protected void CheckLyrics()
+    {
+        // wait for the user to type something
+        Console.WriteLine();
+        Console.Write("Escolha uma letra: ");
+
+        string? UserChoice = Console.ReadLine();
+        char Letter = ' ';
+
+        // check if user typed something
+        try
+        {
+            if (UserChoice is not null)
+                Letter = UserChoice[0];
+        }
+        catch (IndexOutOfRangeException)
+        {
+            Console.WriteLine("You have not entered any characters!");
+        }
+
+        // check if the letter the user typed is in the hidden word
+        if (CheckChoice(Letter))
+        {
+            NewHiddenLetters(Letter);
+            ShowHiddenLetters();
+        }
+        else
+        {
+            Console.WriteLine("Ops, You misses the letter!");
+            --HealthPoints;
+        }
+    }
+
+    protected bool CheckChoice(char letter)
+    {
+        for (int index = 0; index < Characters.Length; ++index)
+        {
+            if (Characters[index] == letter)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected void NewHiddenLetters(char letter)
+    {
+        for (int index = 0; index < Characters.Length; ++index)
+        {
+            if (Characters[index] == letter)
+            {
+                HiddenLetters[index] = letter;
+            }
         }
     }
 }
