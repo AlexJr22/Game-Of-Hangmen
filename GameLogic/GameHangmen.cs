@@ -156,7 +156,7 @@ public class GameHangmen
             if (this.CheckPV())
                 this.Start();
             else
-                Console.WriteLine("You have no more PV");
+                this.GameOver();
         }
     }
 
@@ -189,5 +189,33 @@ public class GameHangmen
             return false;
 
         return true;
+    }
+
+    protected void GameOver()
+    {
+        Console.Clear();
+
+        Console.WriteLine("You have no more LP");
+        Console.WriteLine("do you want to play again? [y/n]");
+        var choice = Console.ReadLine();
+        if (choice is not null)
+            switch (choice[0])
+            {
+                case 'n':
+                    Console.WriteLine("see you next time");
+                    System.Environment.Exit(0);
+                    break;
+                case 'y':
+                    this.Start();
+                    break;
+            }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("I did not understand what you typed");
+            Console.WriteLine("see you next time...");
+            Thread.Sleep(2000);
+            System.Environment.Exit(0);
+        }
     }
 }
