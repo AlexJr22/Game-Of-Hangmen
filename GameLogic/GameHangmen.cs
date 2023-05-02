@@ -183,8 +183,8 @@ public class GameHangmen
     protected bool CheckPV()
     {
         if (HealthPoints == 0)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 }
