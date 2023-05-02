@@ -61,7 +61,7 @@ public class GameHangmen
         return listOfWords[RandonWordIndex];
     }
 
-    protected char[] SeparateCharacters(string word) => word.ToCharArray();
+    protected char[] SeparateCharacters(string word) => word.ToUpper().ToCharArray();
 
     public void ShowCharacters()
     {
@@ -111,7 +111,9 @@ public class GameHangmen
         try
         {
             if (UserChoice is not null)
-                Letter = UserChoice[0];
+            {
+                Letter = char.ToUpper(UserChoice[0]);
+            }
         }
         catch (IndexOutOfRangeException)
         {
