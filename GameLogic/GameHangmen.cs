@@ -83,11 +83,13 @@ public class GameHangmen
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
 
-    protected bool CheckWord(char[] word, char[] hiddenLetters)
+    protected void CheckWord(char[] word, char[] hiddenLetters)
     {
+        // finish this later
         bool areEqual = hiddenLetters.SequenceEqual(word);
 
-        return areEqual;
+        if (areEqual) { }
+        else { }
     }
 
     protected void SetHiddenLetters()
