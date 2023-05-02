@@ -150,10 +150,13 @@ public class GameHangmen
             Console.Clear();
             Console.WriteLine("Ops, You misses the letter!");
             --HealthPoints;
-
             Thread.Sleep(500);
             Console.Clear();
-            this.Start();
+
+            if (this.CheckPV())
+                this.Start();
+            else
+                Console.WriteLine("You have no more PV");
         }
     }
 
