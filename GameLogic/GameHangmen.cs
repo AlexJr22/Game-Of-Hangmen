@@ -9,6 +9,8 @@ public class GameHangmen
     protected char[] HiddenLetters;
     protected char[] Characters;
     protected short HealthPoints { get; set; }
+    private List<string> ListOfWords = new List<string>();
+    private bool FirstRun;
 
     public GameHangmen()
     {
@@ -16,6 +18,7 @@ public class GameHangmen
         this.HealthPoints = 4;
         this.Characters = new char[0];
         this.HiddenLetters = new char[0];
+        FirstRun = true;
     }
 
     public void Start() // the game start setting are here
@@ -33,6 +36,12 @@ public class GameHangmen
 
     public void UseListOfWords(List<string> listOfWords)
     {
+        if (FirstRun)
+        {
+            ListOfWords.AddRange(listOfWords);
+            FirstRun = false;
+        }
+
         // adding a random word from the list to 'Word'
         this.Word = RaffleWord(listOfWords);
 
@@ -214,6 +223,13 @@ public class GameHangmen
                     System.Environment.Exit(0);
                     break;
                 case 'y':
+                    this.Word = "";
+                    this.HealthPoints = 4;
+                    this.Characters = new char[0];
+                    this.HiddenLetters = new char[0];
+
+                    this.UseListOfWords(ListOfWords);
+
                     Console.Clear();
                     this.Start();
                     break;
