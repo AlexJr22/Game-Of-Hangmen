@@ -28,7 +28,8 @@ public class GameHangmen
         this.LPCounter();
 
         // hide letters
-        Console.SetCursorPosition(1, 7);
+        Console.SetCursorPosition(0, 7);
+        Console.WriteLine("---------------------");
         this.ShowHiddenLetters();
 
         // waiting and checking if the user typed and hit the letter
@@ -208,6 +209,11 @@ public class GameHangmen
     {
         Console.Clear();
 
+        Menu.DrawGallows();
+        this.LPCounter();
+
+        Console.SetCursorPosition(0, 7);
+        Console.WriteLine("---------------------");
         Console.WriteLine("You have no more LP");
         this.PlayAgain();
     }
@@ -278,8 +284,14 @@ public class GameHangmen
             }
             case 0:
             {
-                Console.SetCursorPosition(2, 3);
-                DrawMan.Drawing();
+                Console.SetCursorPosition(2, 2);
+                DrawMan.DrawHead();
+                Console.SetCursorPosition(3, 3);
+                DrawMan.DrawArms();
+                Console.SetCursorPosition(3, 4);
+                DrawMan.DrawHalf();
+                Console.SetCursorPosition(3, 5);
+                DrawMan.DrawLegs();
                 // Menu.DrawGallows();
                 break;
             }
