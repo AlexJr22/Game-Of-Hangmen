@@ -218,4 +218,29 @@ public class GameHangmen
             System.Environment.Exit(0);
         }
     }
+
+    protected void PlayAgain()
+    {
+        Console.WriteLine("do you want to play again? [y/n]");
+        var choice = Console.ReadLine();
+        if (choice is not null)
+            switch (choice[0])
+            {
+                case 'n':
+                    Console.WriteLine("see you next time");
+                    System.Environment.Exit(0);
+                    break;
+                case 'y':
+                    this.Start();
+                    break;
+            }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("I did not understand what you typed");
+            Console.WriteLine("see you next time...");
+            Thread.Sleep(2000);
+            System.Environment.Exit(0);
+        }
+    }
 }
