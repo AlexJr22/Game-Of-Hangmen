@@ -25,9 +25,10 @@ public class GameHangmen
     {
         // draw the gallows and the man
         Menu.DrawGallows();
-        Console.WriteLine();
+        this.LPCounter();
 
         // hide letters
+        Console.SetCursorPosition(1, 7);
         this.ShowHiddenLetters();
 
         // waiting and checking if the user typed and hit the letter
@@ -241,6 +242,47 @@ public class GameHangmen
             Console.WriteLine("see you next time...");
             Thread.Sleep(2000);
             System.Environment.Exit(0);
+        }
+    }
+
+    protected void LPCounter()
+    {
+        switch (HealthPoints)
+        {
+            case 3:
+            {
+                Console.SetCursorPosition(3, 2);
+                DrawMan.DrawHead();
+                // Menu.DrawGallows();
+                break;
+            }
+            case 2:
+            {
+                Console.SetCursorPosition(3, 2);
+                DrawMan.DrawHead();
+                Console.SetCursorPosition(3, 3);
+                DrawMan.DrawArms();
+                // Menu.DrawGallows();
+                break;
+            }
+            case 1:
+            {
+                Console.SetCursorPosition(3, 2);
+                DrawMan.DrawHead();
+                Console.SetCursorPosition(3, 3);
+                DrawMan.DrawArms();
+                Console.SetCursorPosition(3, 4);
+                DrawMan.DrawHalf();
+                // Menu.DrawGallows();
+                break;
+            }
+            case 0:
+            {
+                Console.SetCursorPosition(2, 3);
+                DrawMan.Drawing();
+                // Menu.DrawGallows();
+                break;
+            }
         }
     }
 }
