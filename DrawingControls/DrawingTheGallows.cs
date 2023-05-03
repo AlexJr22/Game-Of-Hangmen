@@ -4,7 +4,7 @@ public static class DrawingTheGallows
 {
     public static void DrawingCable() => Console.WriteLine("-+----+");
 
-    public static void DrawingChain() => Console.WriteLine(" §    |");
+    public static void DrawingChain() => Console.WriteLine(" $    |");
 
     public static void DrawingPart() => Console.WriteLine("      |");
 }

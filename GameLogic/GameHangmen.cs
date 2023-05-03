@@ -284,7 +284,7 @@ public class GameHangmen
             }
             case 0:
             {
-                Console.SetCursorPosition(2, 2);
+                Console.SetCursorPosition(3, 2);
                 DrawMan.DrawHead();
                 Console.SetCursorPosition(3, 3);
                 DrawMan.DrawArms();
