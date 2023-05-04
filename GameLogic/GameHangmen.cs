@@ -28,8 +28,6 @@ public class GameHangmen
         this.LPCounter();
 
         // hide letters
-        Console.SetCursorPosition(0, 7);
-        Console.WriteLine("---------------------");
         this.ShowHiddenLetters();
 
         // waiting and checking if the user typed and hit the letter
@@ -88,8 +86,12 @@ public class GameHangmen
     {
         // show the hidden letters
         if (HiddenLetters.Length > 0)
+        {
+            Console.SetCursorPosition(0, 7);
+            Console.WriteLine("---------------------");
             foreach (char character in HiddenLetters)
                 Console.Write($"{character} ");
+        }
         else
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
@@ -259,7 +261,6 @@ public class GameHangmen
             {
                 Console.SetCursorPosition(3, 2);
                 DrawMan.DrawHead();
-                // Menu.DrawGallows();
                 break;
             }
             case 2:
@@ -268,7 +269,6 @@ public class GameHangmen
                 DrawMan.DrawHead();
                 Console.SetCursorPosition(3, 3);
                 DrawMan.DrawArms();
-                // Menu.DrawGallows();
                 break;
             }
             case 1:
@@ -279,7 +279,6 @@ public class GameHangmen
                 DrawMan.DrawArms();
                 Console.SetCursorPosition(3, 4);
                 DrawMan.DrawHalf();
-                // Menu.DrawGallows();
                 break;
             }
             case 0:
@@ -292,7 +291,6 @@ public class GameHangmen
                 DrawMan.DrawHalf();
                 Console.SetCursorPosition(3, 5);
                 DrawMan.DrawLegs();
-                // Menu.DrawGallows();
                 break;
             }
         }
