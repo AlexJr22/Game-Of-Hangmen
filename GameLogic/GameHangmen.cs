@@ -5,10 +5,10 @@ namespace Game_Of_Hangmen.GameLogic;
 public class GameHangmen
 {
     // Class responsible for containing the game logic
-    protected string Word { get; set; }
-    protected char[] HiddenLetters;
-    protected char[] Characters;
-    protected short HealthPoints { get; set; }
+    private string Word { get; set; }
+    private char[] HiddenLetters;
+    private char[] Characters;
+    private short HealthPoints { get; set; }
     private List<string> ListOfWords = new List<string>();
     private bool FirstRun;
 
@@ -57,7 +57,7 @@ public class GameHangmen
         SetHiddenLetters();
     }
 
-    protected string RaffleWord(List<string> listOfWords) // picking a random word the list
+    private string RaffleWord(List<string> listOfWords) // picking a random word the list
     {
         if (listOfWords is null || listOfWords.Count == 0)
             throw new ArgumentException("The wordlist cannot be empty.");
@@ -70,7 +70,7 @@ public class GameHangmen
         return listOfWords[RandonWordIndex];
     }
 
-    protected char[] SeparateCharacters(string word) => word.ToUpper().ToCharArray();
+    private char[] SeparateCharacters(string word) => word.ToUpper().ToCharArray();
 
     public void ShowCharacters()
     {
@@ -96,7 +96,7 @@ public class GameHangmen
             Console.WriteLine("I couldn't find any words, the word list is empty");
     }
 
-    protected void CheckWord(char[] characters, char[] hiddenLetters)
+    private void CheckWord(char[] characters, char[] hiddenLetters)
     {
         // finish this later
         bool areEqual = hiddenLetters.SequenceEqual(characters);
@@ -119,20 +119,20 @@ public class GameHangmen
         }
     }
 
-    protected void SetHiddenLetters()
+    private void SetHiddenLetters()
     {
         // set the hidden letters
         HiddenLetters = new char[Characters.Length];
-        for (int i = 0; i < Characters.Length; i++)
+        for (int index = 0; index < Characters.Length; index++)
         {
-            if (Characters[i] != '-')
-                HiddenLetters[i] = '*';
+            if (Characters[index] != '-')
+                HiddenLetters[index] = '*';
             else
-                HiddenLetters[i] = '-';
+                HiddenLetters[index] = '-';
         }
     }
 
-    protected void CheckLyrics()
+    private void CheckLyrics()
     {
         // wait for the user to type something
         Console.WriteLine();
@@ -145,9 +145,7 @@ public class GameHangmen
         try
         {
             if (UserChoice is not null)
-            {
                 Letter = char.ToUpper(UserChoice[0]);
-            }
         }
         catch (IndexOutOfRangeException)
         {
@@ -176,30 +174,23 @@ public class GameHangmen
         }
     }
 
-    protected bool CheckChoice(char letter)
+    private bool CheckChoice(char letter)
     {
         for (int index = 0; index < Characters.Length; ++index)
-        {
             if (Characters[index] == letter)
-            {
                 return true;
-            }
-        }
+
         return false;
     }
 
-    protected void NewHiddenLetters(char letter)
+    private void NewHiddenLetters(char letter)
     {
         for (int index = 0; index < Characters.Length; ++index)
-        {
             if (Characters[index] == letter)
-            {
                 HiddenLetters[index] = letter;
-            }
-        }
     }
 
-    protected bool CheckPV()
+    private bool CheckPV()
     {
         if (HealthPoints == 0)
             return false;
@@ -207,7 +198,7 @@ public class GameHangmen
         return true;
     }
 
-    protected void GameOver()
+    private void GameOver()
     {
         Console.Clear();
 
@@ -220,7 +211,7 @@ public class GameHangmen
         this.PlayAgain();
     }
 
-    protected void PlayAgain()
+    private void PlayAgain()
     {
         Console.WriteLine("do you want to play again? [y/n]");
         var choice = Console.ReadLine();
@@ -253,7 +244,7 @@ public class GameHangmen
         }
     }
 
-    protected void LPCounter()
+    private void LPCounter()
     {
         switch (HealthPoints)
         {
