@@ -138,14 +138,14 @@ public class GameHangmen
         Console.WriteLine();
         Console.Write("Escolha uma letra: ");
 
-        string? UserChoice = Console.ReadLine();
+        string? currentLetter = Console.ReadLine();
         char Letter = ' ';
 
         // check if user typed something
         try
         {
-            if (UserChoice is not null)
-                Letter = char.ToUpper(UserChoice[0]);
+            if (currentLetter is not null)
+                Letter = char.ToUpper(currentLetter[0]);
         }
         catch (IndexOutOfRangeException)
         {
