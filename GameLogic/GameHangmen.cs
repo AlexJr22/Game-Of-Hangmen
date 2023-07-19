@@ -136,7 +136,7 @@ public class GameHangmen
     {
         // wait for the user to type something
         Console.WriteLine();
-        Console.Write("Escolha uma letra: ");
+        Console.Write("Choice a letter: ");
 
         string? currentLetter = Console.ReadLine();
         char Letter = ' ';
