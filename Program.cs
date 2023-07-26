@@ -1,4 +1,4 @@
-﻿using Game_Of_Hangmen.GameLogic;
+﻿using Game_Of_Hangmen.GameLogic.GameHangmen;
 
 Console.Clear();
 
